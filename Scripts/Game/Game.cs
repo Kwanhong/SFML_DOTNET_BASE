@@ -14,6 +14,8 @@ namespace Base
     class Game
     {
         ConsoleBox console;
+        int moverCnt = 1;
+        Mover[] movers;
 
         public void Run()
         {
@@ -38,23 +40,50 @@ namespace Base
 
         public void Initialize()
         {
-            var pos = new Vector2f(winSizeX, winSizeY) * 0.5f;
-            var siz = new Vector2f(500, 500);
-            console = new ConsoleBox(pos, siz);
+            console = new ConsoleBox(new Vector2f(winSizeX, winSizeY) / 2, new Vector2f(1000, 800));
+            movers = new Mover[moverCnt];
+            for (var i = 0; i < moverCnt; i++)
+                movers[i] = new Mover(new Vector2f(Random(200, winSizeX - 200), Random(200, winSizeY - 200)));
         }
 
         private void Update()
         {
             console.Update();
+            foreach (var mover in movers)
+            {
+                if (Mouse.IsButtonPressed(Mouse.Button.Left))
+                {
+                    var wind = (Vector2f)Mouse.GetPosition(window) - mover.Position;
+                    wind = SetMagnitude(wind, 1f);
+                    mover.ApplyForce(-wind);
+                }
+                var gravity = new Vector2f(0, 0.5f);
+                mover.ApplyForce(gravity);
+
+                mover.Update();
+            }
         }
 
         private void Display()
         {
+            foreach (var mover in movers)
+                mover.Display();
+
             console.Display();
+            
+            if (Mouse.IsButtonPressed(Mouse.Button.Left))
+            {
+                CircleShape circle = new CircleShape(40);
+                circle.Origin = new Vector2f(40, 40);
+                circle.Position = (Vector2f)Mouse.GetPosition(window);
+                circle.FillColor = new Color(255, 100, 100, 100);
+                window.Draw(circle);
+            }
         }
 
         private void LateUpdate()
         {
         }
+
     }
 }

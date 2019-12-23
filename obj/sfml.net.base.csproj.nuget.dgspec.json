@@ -1,30 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Personals\\SFML.NET.Base\\sfml.net.base.csproj": {}
+    "C:\\Works\\Personal\\SFML_DOTNET_BASE\\sfml.net.base.csproj": {}
   },
   "projects": {
-    "D:\\Personals\\SFML.NET.Base\\sfml.net.base.csproj": {
+    "C:\\Works\\Personal\\SFML_DOTNET_BASE\\sfml.net.base.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Personals\\SFML.NET.Base\\sfml.net.base.csproj",
+        "projectUniqueName": "C:\\Works\\Personal\\SFML_DOTNET_BASE\\sfml.net.base.csproj",
         "projectName": "sfml.net.base",
-        "projectPath": "D:\\Personals\\SFML.NET.Base\\sfml.net.base.csproj",
-        "packagesPath": "C:\\Users\\KwanHong\\.nuget\\packages\\",
-        "outputPath": "D:\\Personals\\SFML.NET.Base\\obj\\",
+        "projectPath": "C:\\Works\\Personal\\SFML_DOTNET_BASE\\sfml.net.base.csproj",
+        "packagesPath": "C:\\Users\\rhksg\\.nuget\\packages\\",
+        "outputPath": "C:\\Works\\Personal\\SFML_DOTNET_BASE\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\KwanHong\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\rhksg\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

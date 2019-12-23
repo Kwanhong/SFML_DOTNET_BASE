@@ -14,14 +14,18 @@ namespace Base
     public class ConsoleBox
     {
         private string ENTER = ((char)13).ToString();
+        private enum WindowState {Normal, Max, Min, Closed};
+        private WindowState winState = WindowState.Normal;
         public const uint MaxCharSize = 75;
         public const uint MinCharSize = 5;
+
         public enum ViewMode { Left, Right, Top, Bott }
         public Vector2f Position { get; set; }
         public Vector2f Origin { get; set; }
         public Vector2f Size { get; set; }
         public Color BackColor { get; set; }
         public Color TextColor { get; set; }
+        private string str;
         public string String
         {
             get => str; set
@@ -35,20 +39,20 @@ namespace Base
             }
         }
 
+        private RenderTexture texture;
         private Button extBtn;
         private Button minBtn;
         private Button maxBtn;
-        private Text text;
-        private string str;
         private Font font;
-        private RenderTexture texture;
         private View view;
-        private bool isDragging;
-        private bool isTbDragging;
         private Vector2f delta;
         private Vector2f tbDelta;
         private Vector2f textBox;
+        private Text text;
+
         private int cursor;
+        private bool isDragging;
+        private bool isTbDragging;
         private const string textBar = "_";
 
         public ConsoleBox(Vector2f position, Vector2f size)
@@ -58,9 +62,9 @@ namespace Base
             this.Size = size;
             this.Origin = size / 2;
 
-            this.font = new Font("Resources\\Fonts\\NANUMGOTHIC.TTF");
+            this.font = new Font("Resources\\Fonts\\NANUMGOTHICLIGHT.TTF");
             this.text = new Text(String, font);
-            this.text.CharacterSize = 15;
+            this.text.CharacterSize = 30;
             this.BackColor = new Color(50, 50, 50);
             this.TextColor = Color.White;
             this.texture = new RenderTexture((uint)Size.X, (uint)Size.Y);
@@ -84,7 +88,7 @@ namespace Base
         {
             extBtn.Update();
             minBtn.Update();
-            maxBtn.Update();
+            maxBtn.Update();    
 
             var newView = view.Center;
 
@@ -218,7 +222,7 @@ namespace Base
 
         private void DisplayToolbar()
         {
-            Vector2f tbSize = new Vector2f(this.Size.X, 30);
+            Vector2f tbSize = new Vector2f(this.Size.X, 50);
             Vector2f tbOrigin = tbSize / 2;
             Vector2f tbPosition = this.Position - this.Origin + new Vector2f(this.Origin.X, tbOrigin.Y);
             Color tbColor = new Color(43, 43, 43);
@@ -229,26 +233,26 @@ namespace Base
             window.Draw(toolBar);
 
             Text tbText = new Text("CONSOLE", font);
-            tbText.CharacterSize = 14;
+            tbText.CharacterSize = 27;
             tbText.Position = toolBar.Position + new Vector2f(5, 5);
             tbText.Origin = toolBar.Origin;
             tbText.FillColor = new Color(145, 145, 145);
             window.Draw(tbText);
 
-            extBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 15, 0);
-            extBtn.Size = new Vector2f(7, 7);
+            extBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 30, 0);
+            extBtn.Size = new Vector2f(10, 10);
             extBtn.Style.buttonShape = Button.ButtonShape.Circle;
             extBtn.Style.fillColor = new Color(255, 76, 71);
             extBtn.Display();
             
-            maxBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 35, 0);
-            maxBtn.Size = new Vector2f(7, 7);
+            maxBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 65, 0);
+            maxBtn.Size = new Vector2f(10, 10);
             maxBtn.Style.buttonShape = Button.ButtonShape.Circle;
             maxBtn.Style.fillColor = new Color(255, 184, 42);
             maxBtn.Display();
 
-            minBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 55, 0);
-            minBtn.Size = new Vector2f(7, 7);
+            minBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 100, 0);
+            minBtn.Size = new Vector2f(10, 10);
             minBtn.Style.buttonShape = Button.ButtonShape.Circle;
             minBtn.Style.fillColor = new Color(36, 195, 57);
             minBtn.Display();
@@ -459,6 +463,18 @@ namespace Base
                 GetLowerLineLoc(out first, out start, out end);
                 cursor = start - (first - cursor);
             }
+        }
+        
+        private void OnExitButtonClicked(){
+            
+        }
+
+        private void OnMaxButtonClicked(){
+
+        }
+
+        private void OnMinButtonClicked(){
+
         }
         #endregion
     }

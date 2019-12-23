@@ -9,3 +9,14 @@ d:\Personals\SFML.NET.Base\obj\Debug\netcoreapp2.2\sfml.net.base.AssemblyInfoInp
 d:\Personals\SFML.NET.Base\obj\Debug\netcoreapp2.2\sfml.net.base.AssemblyInfo.cs
 d:\Personals\SFML.NET.Base\obj\Debug\netcoreapp2.2\sfml.net.base.dll
 d:\Personals\SFML.NET.Base\obj\Debug\netcoreapp2.2\sfml.net.base.pdb
+C:\Works\Personal\SFML_DOTNET_BASE\bin\Debug\netcoreapp2.2\sfml.net.base.deps.json
+C:\Works\Personal\SFML_DOTNET_BASE\bin\Debug\netcoreapp2.2\sfml.net.base.runtimeconfig.json
+C:\Works\Personal\SFML_DOTNET_BASE\bin\Debug\netcoreapp2.2\sfml.net.base.runtimeconfig.dev.json
+C:\Works\Personal\SFML_DOTNET_BASE\bin\Debug\netcoreapp2.2\sfml.net.base.dll
+C:\Works\Personal\SFML_DOTNET_BASE\bin\Debug\netcoreapp2.2\sfml.net.base.pdb
+C:\Works\Personal\SFML_DOTNET_BASE\obj\Debug\netcoreapp2.2\sfml.net.base.csprojAssemblyReference.cache
+C:\Works\Personal\SFML_DOTNET_BASE\obj\Debug\netcoreapp2.2\sfml.net.base.csproj.CoreCompileInputs.cache
+C:\Works\Personal\SFML_DOTNET_BASE\obj\Debug\netcoreapp2.2\sfml.net.base.AssemblyInfoInputs.cache
+C:\Works\Personal\SFML_DOTNET_BASE\obj\Debug\netcoreapp2.2\sfml.net.base.AssemblyInfo.cs
+C:\Works\Personal\SFML_DOTNET_BASE\obj\Debug\netcoreapp2.2\sfml.net.base.dll
+C:\Works\Personal\SFML_DOTNET_BASE\obj\Debug\netcoreapp2.2\sfml.net.base.pdb
