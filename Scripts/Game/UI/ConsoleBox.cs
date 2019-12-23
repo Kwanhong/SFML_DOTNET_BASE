@@ -58,7 +58,7 @@ namespace Base
             this.Size = size;
             this.Origin = size / 2;
 
-            this.font = new Font("Resources\\Fonts\\NANUMGOTHIC.TTF");
+            this.font = new Font("Resources\\Fonts\\D2Codingligature.ttf");
             this.text = new Text(String, font);
             this.text.CharacterSize = 15;
             this.BackColor = new Color(50, 50, 50);
@@ -236,21 +236,27 @@ namespace Base
             window.Draw(tbText);
 
             extBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 15, 0);
-            extBtn.Size = new Vector2f(7, 7);
+            extBtn.Size = new Vector2f(6, 6);
             extBtn.Style.buttonShape = Button.ButtonShape.Circle;
             extBtn.Style.fillColor = new Color(255, 76, 71);
+            extBtn.Style.outlineColor = new Color(219, 40, 35);
+            extBtn.Style.outlineThickness = 1;
             extBtn.Display();
             
             maxBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 35, 0);
-            maxBtn.Size = new Vector2f(7, 7);
+            maxBtn.Size = new Vector2f(6, 6);
             maxBtn.Style.buttonShape = Button.ButtonShape.Circle;
             maxBtn.Style.fillColor = new Color(255, 184, 42);
+            maxBtn.Style.outlineColor = new Color(219, 148, 6);
+            maxBtn.Style.outlineThickness = 1;
             maxBtn.Display();
 
             minBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 55, 0);
-            minBtn.Size = new Vector2f(7, 7);
+            minBtn.Size = new Vector2f(6, 6);
             minBtn.Style.buttonShape = Button.ButtonShape.Circle;
             minBtn.Style.fillColor = new Color(36, 195, 57);
+            minBtn.Style.outlineColor = new Color(0, 159, 21);
+            minBtn.Style.outlineThickness = 1;
             minBtn.Display();
         }
 

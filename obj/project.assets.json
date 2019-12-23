@@ -1125,11 +1125,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Personals\\SFML.NET.Base\\sfml.net.base.csproj",
+      "projectUniqueName": "D:\\Personals\\SFML_DOTNET_BASE\\sfml.net.base.csproj",
       "projectName": "sfml.net.base",
-      "projectPath": "d:\\Personals\\SFML.NET.Base\\sfml.net.base.csproj",
+      "projectPath": "D:\\Personals\\SFML_DOTNET_BASE\\sfml.net.base.csproj",
       "packagesPath": "C:\\Users\\KwanHong\\.nuget\\packages\\",
-      "outputPath": "d:\\Personals\\SFML.NET.Base\\obj\\",
+      "outputPath": "D:\\Personals\\SFML_DOTNET_BASE\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

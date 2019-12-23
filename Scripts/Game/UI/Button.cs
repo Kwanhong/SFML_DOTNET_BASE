@@ -19,7 +19,9 @@ namespace Base
         {
             public ButtonStyle()
             {
+                outlineThickness = 0;
                 fillColor = Color.White;
+                outlineColor = Color.White;
                 textColor = Color.Black;
                 fontName = "NANUMGOTHICLIGHT";
                 font = new Font("Resources\\Fonts\\" + FontName + ".TTF");
@@ -33,11 +35,13 @@ namespace Base
                     font = new Font("Resources\\Fonts\\" + fontName + ".TTF");
                 }
             }
+            public float outlineThickness;
+            public Color outlineColor;
             public Color fillColor;
             public Color textColor;
+            public ButtonShape buttonShape;
             public Font font;
             public string fontName;
-            public ButtonShape buttonShape;
         }
 
         public Vector2f Position { get; set; }
@@ -93,6 +97,8 @@ namespace Base
                     rect.Origin = this.Size;
                     rect.Position = this.Position;
                     rect.FillColor = btnColor;
+                    rect.OutlineColor = Style.outlineColor;
+                    rect.OutlineThickness = Style.outlineThickness;
                     window.Draw(rect);
                     btnPos = rect.Position;
                     break;
@@ -101,6 +107,8 @@ namespace Base
                     circle.Origin = this.Size;
                     circle.Position = this.Position;
                     circle.FillColor = btnColor;
+                    circle.OutlineColor = Style.outlineColor;
+                    circle.OutlineThickness = Style.outlineThickness;
                     window.Draw(circle);
                     btnPos = circle.Position;
                     break;
