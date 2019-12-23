@@ -13,9 +13,10 @@ namespace Base
 {
     class Game
     {
-        ConsoleBox console;
-        int moverCnt = 1;
+        int moverCnt = 0;
+        int consoleCnt = 1;
         Mover[] movers;
+        ConsoleBox[] consoles;
 
         public void Run()
         {
@@ -40,7 +41,10 @@ namespace Base
 
         public void Initialize()
         {
-            console = new ConsoleBox(new Vector2f(winSizeX, winSizeY) / 2, new Vector2f(1000, 800));
+            consoles = new ConsoleBox[consoleCnt];
+            for (var i = 0; i < consoleCnt; i++)
+                consoles[i] = new ConsoleBox(new Vector2f(winSizeX, winSizeY) / 2, new Vector2f(600, 450));
+
             movers = new Mover[moverCnt];
             for (var i = 0; i < moverCnt; i++)
                 movers[i] = new Mover(new Vector2f(Random(200, winSizeX - 200), Random(200, winSizeY - 200)));
@@ -48,7 +52,9 @@ namespace Base
 
         private void Update()
         {
-            console.Update();
+            foreach (var console in consoles)
+                console.Update();
+
             foreach (var mover in movers)
             {
                 if (Mouse.IsButtonPressed(Mouse.Button.Left))
@@ -62,6 +68,7 @@ namespace Base
 
                 mover.Update();
             }
+
         }
 
         private void Display()
@@ -69,16 +76,17 @@ namespace Base
             foreach (var mover in movers)
                 mover.Display();
 
-            console.Display();
+            foreach (var console in consoles)
+                console.Display();
             
-            if (Mouse.IsButtonPressed(Mouse.Button.Left))
-            {
-                CircleShape circle = new CircleShape(40);
-                circle.Origin = new Vector2f(40, 40);
-                circle.Position = (Vector2f)Mouse.GetPosition(window);
-                circle.FillColor = new Color(255, 100, 100, 100);
-                window.Draw(circle);
-            }
+            //if (Mouse.IsButtonPressed(Mouse.Button.Left))
+            //{
+            //    CircleShape circle = new CircleShape(40);
+            //    circle.Origin = new Vector2f(40, 40);
+            //    circle.Position = (Vector2f)Mouse.GetPosition(window);
+            //    circle.FillColor = new Color(255, 100, 100, 100);
+            //    window.Draw(circle);
+            //}
         }
 
         private void LateUpdate()

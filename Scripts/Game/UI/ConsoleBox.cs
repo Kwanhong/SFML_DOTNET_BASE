@@ -19,6 +19,7 @@ namespace Base
         public const uint MaxCharSize = 75;
         public const uint MinCharSize = 5;
 
+        public bool focused = false;
         public enum ViewMode { Left, Right, Top, Bott }
         public Vector2f Position { get; set; }
         public Vector2f Origin { get; set; }
@@ -50,6 +51,8 @@ namespace Base
         private Vector2f textBox;
         private Text text;
 
+        public float scaleFactor = 0.5f;
+
         private int cursor;
         private bool isDragging;
         private bool isTbDragging;
@@ -64,7 +67,7 @@ namespace Base
 
             this.font = new Font("Resources\\Fonts\\NANUMGOTHICLIGHT.TTF");
             this.text = new Text(String, font);
-            this.text.CharacterSize = 30;
+            this.text.CharacterSize = (uint)(30 * scaleFactor);
             this.BackColor = new Color(50, 50, 50);
             this.TextColor = Color.White;
             this.texture = new RenderTexture((uint)Size.X, (uint)Size.Y);
@@ -222,7 +225,7 @@ namespace Base
 
         private void DisplayToolbar()
         {
-            Vector2f tbSize = new Vector2f(this.Size.X, 50);
+            Vector2f tbSize = new Vector2f(this.Size.X, 50 * scaleFactor);
             Vector2f tbOrigin = tbSize / 2;
             Vector2f tbPosition = this.Position - this.Origin + new Vector2f(this.Origin.X, tbOrigin.Y);
             Color tbColor = new Color(43, 43, 43);
@@ -233,26 +236,26 @@ namespace Base
             window.Draw(toolBar);
 
             Text tbText = new Text("CONSOLE", font);
-            tbText.CharacterSize = 27;
+            tbText.CharacterSize = (uint)(27 * scaleFactor);
             tbText.Position = toolBar.Position + new Vector2f(5, 5);
             tbText.Origin = toolBar.Origin;
             tbText.FillColor = new Color(145, 145, 145);
             window.Draw(tbText);
 
-            extBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 30, 0);
-            extBtn.Size = new Vector2f(10, 10);
+            extBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 30 * scaleFactor, 0);
+            extBtn.Size = new Vector2f(10 * scaleFactor, 10 * scaleFactor);
             extBtn.Style.buttonShape = Button.ButtonShape.Circle;
             extBtn.Style.fillColor = new Color(255, 76, 71);
             extBtn.Display();
             
-            maxBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 65, 0);
-            maxBtn.Size = new Vector2f(10, 10);
+            maxBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 65 * scaleFactor, 0);
+            maxBtn.Size = new Vector2f(10 * scaleFactor, 10 * scaleFactor);
             maxBtn.Style.buttonShape = Button.ButtonShape.Circle;
             maxBtn.Style.fillColor = new Color(255, 184, 42);
             maxBtn.Display();
 
-            minBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 100, 0);
-            minBtn.Size = new Vector2f(10, 10);
+            minBtn.Position = toolBar.Position + new Vector2f(toolBar.Size.X / 2 - 100 * scaleFactor, 0);
+            minBtn.Size = new Vector2f(10 * scaleFactor, 10 * scaleFactor);
             minBtn.Style.buttonShape = Button.ButtonShape.Circle;
             minBtn.Style.fillColor = new Color(36, 195, 57);
             minBtn.Display();
